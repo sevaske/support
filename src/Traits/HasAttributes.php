@@ -3,6 +3,7 @@
 namespace Sevaske\Support\Traits;
 
 use InvalidArgumentException;
+use Sevaske\Support\Interfaces\HasReadOnlyAttributesContract;
 
 trait HasAttributes
 {
@@ -10,14 +11,6 @@ trait HasAttributes
      * Internal storage for dynamic attributes.
      */
     protected array $attributes = [];
-
-    /**
-     * If true, attributes cannot be modified.
-     * Can also be an array of keys that are read-only.
-     *
-     * @var bool|array
-     */
-    protected $readOnlyAttributes = false;
 
     /**
      * Fill multiple attributes at once.
@@ -223,7 +216,9 @@ trait HasAttributes
     }
 
     /**
-     * Determines if an attribute is read-only.
+     * Check if an attribute is read-only.
+     *
+     * Uses HasReadOnlyAttributesContract if implemented.
      *
      * @param string $key
      * @param bool $strict
@@ -231,12 +226,17 @@ trait HasAttributes
      */
     protected function isReadOnly(string $key, bool $strict = true): bool
     {
-        if ($this->readOnlyAttributes === true) {
-            return true;
-        }
+        if ($this instanceof HasReadOnlyAttributesContract) {
+            $readOnly = $this->getReadOnlyAttributes();
 
-        if (is_array($this->readOnlyAttributes)) {
-            return in_array($key, $this->readOnlyAttributes, $strict);
+            if ($readOnly === true) {
+                // Block only existing attributes
+                return array_key_exists($key, $this->attributes);
+            }
+
+            if (is_array($readOnly)) {
+                return in_array($key, $readOnly, $strict);
+            }
         }
 
         return false;
