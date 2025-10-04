@@ -4,7 +4,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Sevaske\\Support\\": "src/"
+            "Sevaske\\Support\\": "src/",
+            "Tests\\": "tests/"
         }
     },
     "authors": [
@@ -13,6 +14,13 @@
         }
     ],
     "require": {
-        "php": "^7.4 || ^8.0"
+        "php": "^7.4 || ^8.0",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    },
+    "scripts": {
+        "test": "phpunit --colors=always --configuration phpunit.xml"
     }
 }
