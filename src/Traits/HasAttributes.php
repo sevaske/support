@@ -35,6 +35,44 @@ trait HasAttributes
     }
 
     /**
+     * Check if attribute exists.
+     *
+     * @param string $key
+     * @return bool
+     */
+    public function has(string $key): bool
+    {
+        return array_key_exists($key, $this->attributes);
+    }
+
+    /**
+     * Get all attribute keys.
+     *
+     * Returns an array of all keys currently set in the attributes.
+     *
+     * @return string[] An array of attribute keys.
+     */
+    public function keys(): array
+    {
+        return array_keys($this->attributes);
+    }
+
+    /**
+     * Create a new instance of the current class with the same attributes.
+     *
+     * Useful for creating a copy of the object without affecting the original.
+     *
+     * @return static A new instance with all current attributes copied.
+     */
+    public function replicate()
+    {
+        $clone = new static();
+        $clone->fill($this->attributes);
+
+        return $clone;
+    }
+
+    /**
      * Magic method to retrieve the value of a dynamic attribute.
      *
      * @param  string  $name  The name of the attribute.
