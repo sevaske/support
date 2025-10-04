@@ -1,0 +1,18 @@
+{
+    "name": "sevaske/support",
+    "description": "Reusable traits and utility helpers for PHP",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sevaske\\Support\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sevaske"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0"
+    }
+}
