@@ -29,7 +29,7 @@ class HasAttributesTest extends TestCase
 
             private $readOnly;
 
-            public function __construct(array $attributes, $readOnly)
+            public function __construct(array $attributes = [], $readOnly = true)
             {
                 $this->attributes = $attributes;
                 $this->readOnly = $readOnly;
@@ -105,7 +105,7 @@ class HasAttributesTest extends TestCase
 
     public function testReadOnlyTrue(): void
     {
-        $obj = $this->createReadonlyObject(['name' => 'John']);
+        $obj = $this->createReadonlyObject(['name' => 'John'], true);
 
         // Trying to modify should throw LogicException
         $this->expectException(\LogicException::class);

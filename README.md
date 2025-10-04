@@ -1,3 +1,8 @@
+[![Packagist](https://img.shields.io/packagist/v/sevaske/support.svg?style=flat-square)](https://packagist.org/packages/sevaske/support)
+[![PHPUnit](https://github.com/sevaske/support/actions/workflows/tests.yml/badge.svg)](https://github.com/sevaske/support/actions/workflows/tests.yml)
+[![PHPStan](https://github.com/sevaske/support/actions/workflows/phpstan.yml/badge.svg)](https://github.com/sevaske/support/actions/workflows/phpstan.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 # PHP Support
 
 Lightweight and minimalistic PHP library providing a set of foundational tools for development.  

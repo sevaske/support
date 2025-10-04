@@ -18,9 +18,14 @@
         "ext-json": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.6"
+        "phpunit/phpunit": "^9.6",
+        "phpstan/phpstan": "^2.1"
     },
     "scripts": {
-        "test": "phpunit --colors=always --configuration phpunit.xml"
+        "test": "phpunit --colors=always --configuration phpunit.xml",
+        "stan": "phpstan analyse"
+    },
+    "support": {
+        "source": "https://github.com/sevaske/support"
     }
 }

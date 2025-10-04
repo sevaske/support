@@ -150,6 +150,7 @@ trait HasAttributes
      * @param  mixed  $offset  The attribute key.
      * @return bool True if set, false otherwise.
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->attributes[$offset]);
@@ -161,6 +162,7 @@ trait HasAttributes
      * @param  mixed  $offset  The attribute key.
      * @return mixed|null The attribute value, or null if not set.
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->attributes[$offset] ?? null;
@@ -186,6 +188,7 @@ trait HasAttributes
      *
      * @param  mixed  $offset  The attribute key.
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         if ($this->isReadOnly($offset)) {
